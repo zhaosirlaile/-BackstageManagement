@@ -1,16 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'font-awesome/css/font-awesome.min.css'
+import Home from 'page/home/index.jsx';
+import Layout from 'component/layout/index.jsx';
 
-import './index.css';
-import './index.scss';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+} from 'react-router-dom';
 
+class App extends React.Component {
+    constructor(props){
+        super(props)
+    }
+    render() {
+        return (
+            <Router>
+                <Layout>
+                    <Switch>
+                        <Route exact path='/' component={Home}></Route>
+                        <Redirect from='*' to='/'></Redirect>
+                    </Switch>
+                </Layout>
+            </Router>
+        )
+    }
+}
 
 ReactDOM.render(
-    <div>
-        {/* <i className='fa fa-address-book'></i> */}
-        <h1>hello,world!</h1>
-    </div>,
+    <App></App>,
     document.getElementById('app')
 )
