@@ -5,6 +5,7 @@ import NavSide from 'component/nav-side/index.jsx';
 
 
 import './theme.css';
+import './index.scss';
 
 class Layout extends Component {
     constructor(props){
