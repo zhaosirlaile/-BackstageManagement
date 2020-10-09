@@ -7,6 +7,9 @@ import Login from 'page/login/index.jsx';
 import UserList from 'page/user/index.jsx';
 import ErrorPage from 'page/error/index.jsx';
 import ProductRouter from 'page/product/router.jsx';
+import orderList from 'page/order/index.jsx';
+import orderDetail from 'page/order/detail.jsx';
+
 
 import {
     BrowserRouter as Router,
@@ -25,10 +28,11 @@ class App extends React.Component {
                     <Route exact path='/' component={Home}></Route>
                     <Route path='/product' component={ProductRouter}></Route>
                     <Route path='/product-category' component={ProductRouter}></Route>
-                    <Route path='/order' component={Home}></Route>
+                    <Route path='/order/index' component={orderList}></Route>
+                    <Route path='/order/detail/:orderNumber' component={orderDetail}></Route>
                     <Route path='/user/index' component={UserList}></Route>
+                    <Redirect exact from='/order' to='/order/index'></Redirect>
                     <Redirect exact from='/user' to='/user/index'></Redirect>
-    
                     <Route component={ErrorPage}></Route>
     
                 </Switch>
